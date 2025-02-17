@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^22.13.4",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-import-resolver-typescript": "^3.6.3",

@@ -1,9 +1,9 @@
-import type { Messages, PaginationQuery } from "../types/mailhog";
-import type { MailHogTestFixtures } from "../types/fixtures";
+import type { Messages, PaginationQuery } from "@/types/mailhog";
+import type { MailHogTestFixtures } from "@/types/fixtures";
 
 const mhGetAllEmails: MailHogTestFixtures["mhGetAllEmails"] = async (
   { mhApiRequest },
-  use
+  use,
 ) => {
   const getAllEmails = async (query?: PaginationQuery) => {
     const response = await mhApiRequest!("get", "/v2/messages", {

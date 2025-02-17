@@ -1,11 +1,11 @@
-import type { MailHogTestFixtures } from "../types/fixtures";
-import type { PaginationQuery } from "../types/mailhog";
+import type { MailHogTestFixtures } from "@/types/fixtures";
+import type { PaginationQuery } from "@/types/mailhog";
 
 const mhGetEmailsByRecipient: MailHogTestFixtures["mhGetEmailsByRecipient"] =
   async ({ mhSearchEmails }, use) => {
     const getEmailsByRecipient = async (
       recipient: string,
-      query?: PaginationQuery
+      query?: PaginationQuery,
     ) => {
       return mhSearchEmails!({ kind: "to", query: recipient, ...query });
     };

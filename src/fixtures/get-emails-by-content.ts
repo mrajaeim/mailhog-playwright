@@ -1,11 +1,11 @@
-import type { MailHogTestFixtures } from "../types/fixtures";
-import type { PaginationQuery } from "../types/mailhog";
+import type { MailHogTestFixtures } from "@/types/fixtures";
+import type { PaginationQuery } from "@/types/mailhog";
 
 const mhGetEmailsByContent: MailHogTestFixtures["mhGetEmailsByContent"] =
   async ({ mhSearchEmails }, use) => {
     const getEmailsByContent = async (
       content: string,
-      query?: PaginationQuery
+      query?: PaginationQuery,
     ) => {
       return mhSearchEmails!({
         kind: "containing",

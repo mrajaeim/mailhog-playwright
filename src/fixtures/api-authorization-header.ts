@@ -1,16 +1,16 @@
-import type { MailHogTestFixtures } from "../types/fixtures";
+import type { MailHogTestFixtures } from "@/types/fixtures";
 
 const mhApiAuthorizationHeader = (
-  credentials?: string
+  credentials?: string,
 ): MailHogTestFixtures["mhApiAuthorizationHeader"] => {
   return async ({}, use) => {
     if (!credentials) {
       return await use(undefined);
     }
 
-    const buffer = Buffer.from(encodeURIComponent(credentials), "base64");
+    const key = btoa(encodeURIComponent(credentials));
 
-    await use(`Basic ${buffer.toString()}`);
+    await use(`Basic ${key}`);
   };
 };
 
