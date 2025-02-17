@@ -1,5 +1,6 @@
 {
-  "name": "playwright-mailhog",
+  "name": "mailhog-playwright",
+  "version": "1.2.0",
   "description": "Playwright fixtures to easily integrate with MailHog",
   "keywords": [
     "playwright",
@@ -7,24 +8,57 @@
     "email",
     "e2e",
     "testing",
-    "transcational-email",
+    "transactional-email",
     "2fa"
   ],
-  "version": "1.1.0",
+  "homepage": "https://github.com/mrajaeim/mailhog-playwright#readme",
+  "bugs": {
+    "url": "https://github.com/mrajaeim/mailhog-playwright/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrajaeim/mailhog-playwright.git"
+  },
+  "license": "MIT",
+  "author": "Farzad Rajaei <mrajaeim.pro@gmail.com>",
+  "contributors": [
+    {
+      "name": "Alexey Yakovlev",
+      "email": "alexeyyakovlev0359@gmail.com"
+    }
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "author": "Alexey Yakovlev <alexeyyakovlev0359@gmail.com>",
-  "license": "MIT",
   "files": [
     "dist/*",
     "package.json",
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint './src/**/*.{js,ts}'",
+    "type-check": "tsc --noEmit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
-    "typescript": "^4.8.4"
+    "@tsconfig/node20": "^20.1.4",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^4.3.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-packagejson": "^2.5.2",
+    "typescript": "^5.5.3"
   },
   "peerDependencies": {
     "@playwright/test": "^1.27.0"
