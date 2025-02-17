@@ -27,6 +27,7 @@
       "email": "alexeyyakovlev0359@gmail.com"
     }
   ],
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -35,8 +36,9 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "rollup -c",
     "lint": "eslint './src/**/*.{js,ts}'",
+    "prepare": "npm run build",
     "type-check": "tsc --noEmit"
   },
   "husky": {
@@ -49,6 +51,9 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^22.13.4",
     "eslint": "^8.57.1",
@@ -59,7 +64,8 @@
     "husky": "^4.3.0",
     "prettier": "^3.3.3",
     "prettier-plugin-packagejson": "^2.5.2",
-    "typescript": "^5.5.3"
+    "rollup": "^4.34.8",
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "@playwright/test": "^1.27.0"
